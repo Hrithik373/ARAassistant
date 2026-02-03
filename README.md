@@ -1,4 +1,4 @@
-Copyright 2026 Hrithik Ghosh (hrithik373)
+Copyright © 2026 Hrithik Ghosh. All rights reserved. Unauthorized copying, modification, or distribution of this repository is prohibited. (hrithik373)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
