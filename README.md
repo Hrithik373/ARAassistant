@@ -51,7 +51,7 @@ document-grounded evaluation, built using **LangChain, FAISS, OpenAI LLMs, and S
   - Latency tracking
   - Overall quality score
 
-- 🎨 **Modern Streamlit UI**
+- 🎨 **Modern Streamlit UI** (Working on improving the UI)
   - Cyberpunk / midnight purple theme
   - Responsive layout
   - Visual metrics dashboard
