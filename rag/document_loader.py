@@ -1,39 +1,42 @@
 """
-Document loader with Streamlit Cloud–safe imports.
+Streamlit Cloud–safe PDF loader.
 
-This file handles LangChain import inconsistencies by
-falling back to legacy paths when needed.
+This implementation avoids LangChain's PDF loaders entirely
+and uses pypdf directly, which is 100% reliable on Streamlit Cloud.
 """
 
-# =================================================
-# SAFE IMPORT FOR PyPDFLoader (CRITICAL FIX)
-# =================================================
-try:
-    # Preferred import (newer LangChain versions)
-    from langchain_community.document_loaders import PyPDFLoader
-except ModuleNotFoundError:
-    # Fallback for Streamlit Cloud / partial installs
-    from langchain.document_loaders import PyPDFLoader
-
-
+from pypdf import PdfReader
+from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
-# =================================================
-# PDF Loader + Chunker
-# =================================================
 def load_and_split_pdf(pdf_path: str):
     """
-    Loads a PDF file and splits it into text chunks.
+    Load a PDF using pypdf and split into LangChain Documents.
 
     Args:
-        pdf_path (str): Path to the PDF file
+        pdf_path (str): Path to PDF file
 
     Returns:
-        List[Document]: Chunked LangChain documents
+        List[Document]
     """
-    loader = PyPDFLoader(pdf_path)
-    documents = loader.load()
+
+    reader = PdfReader(pdf_path)
+    full_text = []
+
+    for page in reader.pages:
+        text = page.extract_text()
+        if text:
+            full_text.append(text)
+
+    full_text = "\n".join(full_text)
+
+    documents = [
+        Document(
+            page_content=full_text,
+            metadata={"source": pdf_path},
+        )
+    ]
 
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
