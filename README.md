@@ -14,7 +14,7 @@ document-grounded evaluation, built using **LangChain, FAISS, OpenAI LLMs, and S
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="200"/>
 </p>
 
-*(The cat reacts to evaluation scores — happy for good answers, sad for weak ones.)*
+*(The cat reacts to evaluation scores — happy for good answers, sad for weak ones.)(Currently this feature is disabled :( )*
 
 ---
 
