@@ -1,5 +1,7 @@
 Copyright © 2026 Hrithik Ghosh. All rights reserved. Unauthorized copying, modification, or distribution of this repository is prohibited. (hrithik373)
 
+Even though it falls under apache license i still own the rights of this repo.
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
